@@ -111,7 +111,7 @@ export default function Navbar() {
             </a>
           ))}
           <button
-            className="rounded-md bg-[#2D5A3C] px-6 py-3 font-bold text-[#fff8ef] cursor-pointer"
+            className="rounded-md bg-[#2D5A3C] px-6 py-3 font-bold text-[#7D5800] cursor-pointer"
             type="button">
             Boek nu
           </button>
