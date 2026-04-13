@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 const navLinks = [
   { href: "#home", label: "Home" },
+  { href: "#Over_Ons", label: "Over_Ons"},
   { href: "#diensten", label: "Diensten" },
   { href: "#afspraak", label: "Afspraak" },
   { href: "#contact", label: "Contact" },
@@ -111,7 +112,7 @@ export default function Navbar() {
             </a>
           ))}
           <button
-            className="rounded-md bg-[#2D5A3C] px-6 py-3 font-bold text-[#7D5800] cursor-pointer"
+            className="rounded-md bg-[#2D5A3C] px-6 py-3 font-bold text-[#fff8ef] cursor-pointer hover:text-[#7D5800]"
             type="button">
             Boek nu
           </button>
