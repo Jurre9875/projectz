@@ -1,8 +1,10 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShare } from '@fortawesome/free-solid-svg-icons'
 
 export default function Footer() {
   return (
     <footer className="relative flex flex-col items-center overflow-hidden bg-[#24402d] px-8 pt-24 pb-12">
-      <div className="pointer-events-none absolute bottom-0 left-1/2 translate-y-1/4 -translate-x-1/2 whitespace-nowrap font-headline text-[20vw] leading-none font-black uppercase text-[#fff8ef] opacity-5 select-none ms-8 mx-9">
+      <div className="pointer-events-none absolute bottom-0 left-1/2 translate-y-1/4 -translate-x-1/2 whitespace-nowrap font-headline text-[15vw] leading-none font-black uppercase text-[#fff8ef] opacity-5 select-none ms-7 mx-9 w-full text-center">
         PROJECTZ
       </div>
 
@@ -19,10 +21,10 @@ export default function Footer() {
 
             <div className="flex gap-4">
               <a
-                className="flex h-12 w-12 items-center justify-center rounded-full bg-[#fff8ef]/10 text-[#fff8ef] transition-all hover:bg-[#7D5800] hover:text-black"
+                className="flex h-16 w-16 items-center justify-center rounded-full bg-[#fff8ef]/10 text-[#fff8ef] transition-all hover:text-[#7D5800]"
                 href="#"
               >
-                <span className="material-symbols-outlined">share</span>
+                <FontAwesomeIcon icon={faShare} height={50} width={50} />
               </a>
             </div>
           </div>
