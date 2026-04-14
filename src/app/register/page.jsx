@@ -21,12 +21,12 @@ export default function Register() {
     return (
         <>
         <Navbar />
-        <main className="min-h-[calc(100vh-88px)] flex flex-col items-center justify-center p-8 bg-surface-container-low">
+        <main className="min-h-[calc(100vh-88px)] flex flex-col items-center justify-center p-8 bg-surface-container-low bg-[#FDF3DA]">
 
         <div className="w-full max-w-md">
                 
       <div className="mb-12 text-center md:text-left">
-        <span className="inline-block px-3 py-1 bg-secondary-container text-on-secondary-container text-xs font-bold rounded-full uppercase tracking-widest mb-4">
+        <span className="inline-block px-3 py-1 bg-secondary-container text-on-secondary-container text-xs font-bold rounded-full uppercase tracking-widest mb-4 text-[#FFC65D]">
         Account Aanmaken
       </span>
 
@@ -47,7 +47,7 @@ export default function Register() {
             </label>
 
             <input
-              className="w-full bg-surface-container-lowest border-none ring-1 ring-outline-variant/30 focus:ring-2 focus:ring-primary rounded-xl py-4 px-4"
+              className="w-full bg-surface-container-lowest border-none ring-1 ring-gray-500/30 focus:ring-2 focus:ring-primary rounded-xl py-4 px-4 bg-[#ffffff]"
               placeholder="naam@projectz.nl"
               type="email"
               required
@@ -61,7 +61,7 @@ export default function Register() {
             </label>
 
             <input
-              className="w-full bg-surface-container-lowest border-none ring-1 ring-outline-variant/30 focus:ring-2 focus:ring-primary rounded-xl py-4 px-4"
+              className="w-full bg-surface-container-lowest border-none ring-1 ring-gray-500/30 focus:ring-2 focus:ring-primary rounded-xl py-4 px-4 bg-[#ffffff]"
               placeholder="••••••••"
               type="password"
               required
@@ -72,7 +72,7 @@ export default function Register() {
           
           <button
             type="submit"
-            className="w-full bg-primary hover:opacity-90 text-white font-bold py-5 rounded-xl shadow-lg transition-all duration-300"
+            className="w-full bg-primary hover:opacity-90 text-white font-bold py-5 rounded-xl shadow-lg transition-all duration-300 bg-[#2D5A3C] cursor-pointer"
           >
             Account Aanmaken
           </button>
