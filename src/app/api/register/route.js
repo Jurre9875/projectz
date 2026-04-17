@@ -1,8 +1,9 @@
-import { prisma } from "@/lib/prisma";
+import { getPrisma } from "@/lib/prisma";
 import bcrypt from "bcryptjs";
 
 export async function POST(req) {
     try {
+        const prisma = await getPrisma();
         const { email, password } = await req.json();
 
         const hashed = await bcrypt.hash(password, 10);
@@ -17,11 +18,11 @@ export async function POST(req) {
         return Response.json(user);
         
     } catch (error) {
-        console.log("register error", error);
+        console.error("register error", error);
 
         return Response.json({
-            succes: false,
-            message: "user al aangemaakt"
-        });
+            success: false,
+            message: "Registreren is tijdelijk niet beschikbaar."
+        }, { status: 500 });
     }
 }

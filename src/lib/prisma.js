@@ -1,27 +1,32 @@
-import { PrismaClient } from "@/generated/prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 
 const globalForPrisma = globalThis;
 
-const connectionString = process.env.DATABASE_URL;
+export async function getPrisma() {
+  if (globalForPrisma.prisma) {
+    return globalForPrisma.prisma;
+  }
 
-if (!connectionString) {
-  throw new Error("DATABASE_URL is not set");
-}
+  const connectionString = process.env.DATABASE_URL;
 
-const adapter = new PrismaPg({
-  connectionString,
-  ssl: {
-    rejectUnauthorized: false,
-  },
-});
+  if (!connectionString) {
+    throw new Error("DATABASE_URL is niet goed");
+  }
 
-export const prisma =
-  globalForPrisma.prisma ??
-  new PrismaClient({
-    adapter,
+  const [{ PrismaClient }] = await Promise.all([import("@prisma/client")]);
+
+  const adapter = new PrismaPg({
+    connectionString,
+    ssl: {
+      rejectUnauthorized: false,
+    },
   });
 
-if (process.env.NODE_ENV !== "production") {
-  globalForPrisma.prisma = prisma;
+  const prisma = new PrismaClient({ adapter });
+
+  if (process.env.NODE_ENV !== "production") {
+    globalForPrisma.prisma = prisma;
+  }
+
+  return prisma;
 }
