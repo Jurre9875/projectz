@@ -3,24 +3,73 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --hovercolor-text:#7D5800;
+  /*Pagina achtergrond */
+  --background: #f6efe6;
+
+  /* header */
+  --text: #2b2116;
+
+  /* subtitels en beschrijvingen*/
+  --surface: #efe5d8;
+  --text-soft: #6b5f52;
+
+  /*cards en inputvelden */
+  --surface-strong: #fffaf4;
+
+  /*Primaire merkm kleur */
+  --primary: #355844;
+
+  /* donkere variant van primair voor footer*/
+  --primary-strong: #284233;
+
+  /* Accentkleur */
+  --accent: #a97432;
+
+  /* Zachte accent achtergrond */
+  --accent-soft: #e7d1b2;
+
+  /* Donkere accent tekst */
+  --accent-strong: #5f4320;
+
+  /*Randen*/
+  --outline: #c8b8a4;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /*Achtergronden*/
+  --color-bg: var(--background);
+  --color-bg-soft: var(--surface);
+  --color-bg-white: var(--surface-strong);
+  --color-surface-container-low: var(--surface);
+  --color-surface-container-lowest: var(--surface-strong);
+  --color-white-soft: var(--surface-strong);
+
+  /*Tekst*/
+  --color-text: var(--text);
+  --color-on-surface: var(--text);
+  --color-on-surface-variant: var(--text-soft);
+
+  /*kleuren*/
+  --color-green: var(--primary);
+  --color-green-dark: var(--primary-strong);
+  --color-primary: var(--primary);
+  --color-on-primary: var(--surface-strong);
+  --color-brown: var(--accent);
+  --color-brown-soft: var(--accent-soft);
+  --color-brown-dark: var(--accent-strong);
+  --color-secondary: var(--accent);
+  --color-secondary-container: var(--accent-soft);
+  --color-on-secondary-container: var(--accent-strong);
+
+  /* Borders en focus*/
+  --color-line: var(--outline);
+  --color-outline-variant: var(--outline);
+
+  /*Fonts*/
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 .font-headline {
   font-family: "Anton", sans-serif;
 }
@@ -41,6 +90,38 @@
 }
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  cursor: url("/assets/images/muis/trimmer.png"), auto;
+}
+a, button, [role="button"] {
+  cursor: url("/assets/images/muis/shaver.png"), pointer;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 24s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 24s linear infinite;
 }

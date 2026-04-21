@@ -17,7 +17,7 @@ export default function LoginPage() {
     const data = await res.json();
 
     if (data.success) {
-      alert("Ingelogd!");
+      alert("Ingelogd");
     } else {
       alert("Fout login");
     }
@@ -86,12 +86,12 @@ export default function LoginPage() {
             Nog geen account?
           </p>
 
-          <a
-            href="/register"
-            className="text-secondary font-bold hover:underline"
-          >
-            Maak een account
-          </a>
+        <a
+          href="/register"
+          className="text-secondary font-bold hover:underline"
+         >
+        Maak een account
+        </a>
         </div>
 
       </div>

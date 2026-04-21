@@ -13,6 +13,11 @@ const navLinks = [
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("#home");
+  const activeLinkClasses = "border-brown text-brown";
+  const inactiveDesktopLinkClasses =
+    "border-transparent text-text hover:border-brown hover:text-brown";
+  const inactiveMobileLinkClasses =
+    "border-transparent text-bg hover:border-brown hover:text-brown";
 
   useEffect(() => {
     function updateHash() {
@@ -34,9 +39,9 @@ export default function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-black/10 bg-[#fff8ef]">
+    <header className="sticky top-0 z-50 border-b border-text/10 bg-bg">
       <div className="flex w-full items-center justify-between px-6 py-4">
-        <div className="text-2xl font-black tracking-tight text-[#2D5A3C]">
+        <div className="text-green text-2xl font-black tracking-tight">
           PROJECTZ
         </div>
 
@@ -50,8 +55,8 @@ export default function Navbar() {
             href={link.href}
                 className={`cursor-pointer border-b-2 pb-1 font-bold ${
                   isActive
-                    ? "border-[#7D5800] text-[#7D5800]"
-                    : "border-transparent text-[#201b0c] hover:border-[#7D5800] hover:text-[#7D5800]"
+                    ? activeLinkClasses
+                    : inactiveDesktopLinkClasses
                 }`}
               >
                 {link.label}
@@ -60,7 +65,7 @@ export default function Navbar() {
           })}
     </nav>
 
-        <button className="hidden rounded-md bg-[#2D5A3C] px-5 py-2 font-bold text-[#fff8ef] md:block cursor-pointer">
+        <button className="bg-green text-bg hidden cursor-pointer rounded-md px-5 py-2 font-bold md:block hover:text-brown" type="button">
           Boek nu
         </button>
 
@@ -72,17 +77,17 @@ export default function Navbar() {
           type="button"
         >
           <span
-            className={`absolute h-0.5 w-6 bg-[#201b0c] transition-transform duration-300 ${
+            className={`bg-text absolute h-0.5 w-6 transition-transform duration-300 ${
               isMenuOpen ? "rotate-45" : "-translate-y-2"
             }`}
           />
           <span
-            className={`absolute h-0.5 w-6 bg-[#201b0c] transition-opacity duration-300 ${
+            className={`bg-text absolute h-0.5 w-6 transition-opacity duration-300 ${
               isMenuOpen ? "opacity-0" : "opacity-100"
             }`}
           />
           <span
-            className={`absolute h-0.5 w-6 bg-[#201b0c] transition-transform duration-300 ${
+            className={`bg-text absolute h-0.5 w-6 transition-transform duration-300 ${
               isMenuOpen ? "-rotate-45" : "translate-y-2"
             }`}
           />
@@ -90,7 +95,7 @@ export default function Navbar() {
       </div>
 
       <div
-        className={`absolute inset-x-0 top-full border-t border-black/10 bg-[#201b0c] transition-opacity duration-300 md:hidden ${
+        className={`bg-text absolute inset-x-0 top-full border-t border-text/10 transition-opacity duration-300 md:hidden ${
           isMenuOpen
             ? "pointer-events-auto visible opacity-100"
             : "pointer-events-none invisible opacity-0"
@@ -102,8 +107,8 @@ export default function Navbar() {
               key={link.label}
               className={`text-3xl font-bold uppercase tracking-wide border-b-2 pb-1 ${
                 activeLink === link.href
-                  ? "border-[#7D5800] text-[#7D5800]"
-                  : "border-transparent text-[#fff8ef] hover:border-[#7D5800] hover:text-[#7D5800]"
+                  ? activeLinkClasses
+                  : inactiveMobileLinkClasses
               }`}
               href={link.href}
               onClick={closeMenu}
@@ -112,7 +117,7 @@ export default function Navbar() {
             </a>
           ))}
           <button
-            className="rounded-md bg-[#2D5A3C] px-6 py-3 font-bold text-[#fff8ef] cursor-pointer hover:text-[#7D5800]"
+            className="bg-green text-bg hover:text-brown cursor-pointer rounded-md px-6 py-3 font-bold"
             type="button">
             Boek nu
           </button>
