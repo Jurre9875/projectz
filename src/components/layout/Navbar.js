@@ -65,9 +65,12 @@ export default function Navbar() {
           })}
     </nav>
 
-        <button className="bg-green text-bg hidden cursor-pointer rounded-md px-5 py-2 font-bold md:block hover:text-brown" type="button">
+        <a
+          className="bg-green text-bg hidden rounded-md px-5 py-2 font-bold transition hover:text-brown md:block"
+          href="#afspraak"
+        >
           Boek nu
-        </button>
+        </a>
 
         <button
           aria-expanded={isMenuOpen}
@@ -116,11 +119,13 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          <button
-            className="bg-green text-bg hover:text-brown cursor-pointer rounded-md px-6 py-3 font-bold"
-            type="button">
+          <a
+            className="bg-green text-bg rounded-md px-6 py-3 font-bold transition hover:text-brown"
+            href="#afspraak"
+            onClick={closeMenu}
+          >
             Boek nu
-          </button>
+          </a>
         </nav>
       </div>
     </header>

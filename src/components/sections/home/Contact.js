@@ -23,10 +23,13 @@ export default function Contact() {
           </div>
 
           <div className="flex justify-center lg:justify-end">
-            <button className="bg-secondary-container text-on-secondary-container flex items-center gap-4 rounded-full px-12 py-6 font-headline text-2xl font-black uppercase shadow-2xl transition-all hover:scale-105">
+            <a
+              className="bg-secondary-container text-on-secondary-container flex items-center gap-4 rounded-full px-12 py-6 font-headline text-2xl font-black uppercase shadow-2xl transition-all hover:scale-105"
+              href="#afspraak"
+            >
               PLAN EEN BEZOEK
               <span className="material-symbols-outlined text-4xl">calendar_month</span>
-            </button>
+            </a>
           </div>
         </div>
       </div>

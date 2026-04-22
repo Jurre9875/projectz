@@ -15,7 +15,13 @@ export async function POST(req) {
             },
         });
     
-        return Response.json(user);
+        return Response.json({
+            success: true,
+            user: {
+                email: user.email,
+                role: user.role,
+            },
+        });
         
     } catch (error) {
         console.error("register error", error);

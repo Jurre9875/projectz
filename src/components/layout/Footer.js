@@ -60,9 +60,9 @@ export default function Footer() {
                 Contact
               </h4>
               <div className="text-white-soft/60 flex flex-col gap-4 font-bold">
-                <p>Coolsingel 123<br />3012 AG Rotterdam</p>
-                <p>info@projectz.nl</p>
-                <p>010-1234567</p>
+                <p>Stationsstraat 12, 4701 AB Roosendaal</p>
+                <p>+31 2409240</p>
+                <p>hello@projectz.nl</p>
               </div>
             </div>
           </div>

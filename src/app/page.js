@@ -1,7 +1,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import About from "@/components/sections/home/About";
-import Haircut from "@/components/sections/home/haircut";
+import Booking from "@/components/sections/home/Booking";
 import Contact from "@/components/sections/home/Contact";
 import Faq from "@/components/sections/home/Faq";
 import Hero from "@/components/sections/home/Hero";
@@ -20,7 +20,7 @@ export default function Home() {
         <Marquee />
         <Reviews />
         <Faq />
-        <Haircut />
+        <Booking />
         <Contact />
       </main>
       <Footer />
