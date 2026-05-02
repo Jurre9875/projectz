@@ -40,6 +40,7 @@
   --color-bg: var(--background);
   --color-bg-soft: var(--surface);
   --color-bg-white: var(--surface-strong);
+  --color-surface-strong: var(--surface-strong);
   --color-surface-container-low: var(--surface);
   --color-surface-container-lowest: var(--surface-strong);
   --color-white-soft: var(--surface-strong);

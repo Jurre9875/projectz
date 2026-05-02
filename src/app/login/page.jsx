@@ -1,28 +1,30 @@
 "use client";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-
-
 import { useState } from "react";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [fout, setFout] = useState(false);
+  const router = useRouter();
 
   async function handleLogin(e) {
     e.preventDefault();
+    setFout(false);
 
-    const res = await fetch("/api/login", {
-      method: "POST",
-      body: JSON.stringify({ email, password }),
+    const result = await signIn("credentials", {
+      email,
+      password,
+      redirect: false,
     });
 
-    const data = await res.json();
-
-    if (data.success) {
-      alert("Ingelogd");
+    if (result?.ok) {
+      router.push("/admin");
     } else {
-      alert("Fout login");
+      setFout(true);
     }
   }
 
@@ -76,6 +78,12 @@ export default function LoginPage() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
+
+          {fout && (
+            <p className="text-red-600 text-sm font-bold">
+              E-mail of wachtwoord is onjuist.
+            </p>
+          )}
 
           <button
             type="submit"
