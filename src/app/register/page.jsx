@@ -10,12 +10,19 @@ export default function Register() {
     async function handleSubmit(e) {
         e.preventDefault();
 
-        await fetch("/api/register", {
+        const res = await fetch("/api/register", {
             method: "POST",
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email, password }),
         });
 
-        alert("je account is gemaakt")
+        const data = await res.json();
+        if (data.success) {
+            alert("Je account is aangemaakt! Je kunt nu inloggen.");
+            window.location.href = "/login";
+        } else {
+            alert(data.message || "Registreren mislukt. Probeer een ander e-mailadres.");
+        }
     }
     
     return (
@@ -65,8 +72,10 @@ export default function Register() {
               placeholder="••••••••"
               type="password"
               required
+              minLength={8}
               onChange={(e) => setPassword(e.target.value)}
             />
+            <p className="text-xs text-gray-500 mt-1">Minimaal 8 tekens</p>
           </div>
 
           
