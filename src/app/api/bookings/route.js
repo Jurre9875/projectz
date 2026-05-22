@@ -1,6 +1,12 @@
 import { getPrisma } from "@/lib/prisma";
+import { getToken } from "next-auth/jwt";
 
-export async function GET() {
+export async function GET(req) {
+  const token = await getToken({ req, secret: process.env.AUTH_SECRET });
+  if (!token) {
+    return Response.json({ error: "Niet geautoriseerd. Log in om boekingen te bekijken." }, { status: 401 });
+  }
+
   const prisma = await getPrisma();
   const bookings = await prisma.booking.findMany();
 
