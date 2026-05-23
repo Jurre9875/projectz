@@ -24,16 +24,21 @@ export default function Booking() {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    await fetch("/api/bookings", {
+    const res = await fetch("/api/bookings", {
+
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        ...data,
-      }),
+        ...data,}),
     });
 
-    alert("Afspraak verstuurd");
-  };
+    if (res.ok) {
+      alert("afspraak verstuurd");
+    } else {
+      alert("er is iets misgegaan probeer het later opnieuw");
+    }
+};
+  
   return (
     <section className="bg-surface-container-low py-24" id="afspraak">
       <div className="mx-auto grid max-w-6xl gap-10 px-6 lg:grid-cols-2">
@@ -83,6 +88,7 @@ export default function Booking() {
                 className="w-full rounded-2xl border border-line px-4 py-4"
                 name="email"
                 placeholder="E-mail"
+                type="email"
                 onChange={onChange}
                 required
               />
@@ -90,6 +96,7 @@ export default function Booking() {
                 className="w-full rounded-2xl border border-line px-4 py-4"
                 name="phone"
                 placeholder="Telefoon"
+                type="tel"
                 onChange={onChange}
                 required
               />
