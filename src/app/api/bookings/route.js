@@ -32,7 +32,8 @@ export async function POST(req) {
     });
 
     return Response.json({ message: "ok", booking });
-  } catch {
+  } catch (error) {
+    console.error("booking error", error);
     return Response.json({ message: "error" }, { status: 500 });
   }
 }
