@@ -140,7 +140,7 @@ export default function Booking() {
               onChange={onChange}
             />
 
-            <button className="w-full rounded-full bg-primary px-6 py-4 font-headline text-xl text-on-primary">
+            <button className="w-full rounded-full bg-[var(--button-color)] px-6 py-4 font-headline text-xl text-on-secondary-container transition-all hover:scale-105 active:scale-95">
               Afspraak maken
             </button>
           </form>

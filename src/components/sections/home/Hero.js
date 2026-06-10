@@ -14,10 +14,10 @@ export default function Hero() {
             tradities met moderne precisie voor de veeleisende man.
           </p>
 
-          <button className="bg-[#FFC65D] text-on-secondary-container flex items-center gap-3 rounded-full px-8 py-4 font-headline text-lg font-bold transition-all hover:scale-105 active:scale-95">
+          <a href="#afspraak" className="bg-[var(--button-color)] text-on-secondary-container inline-flex items-center gap-3 rounded-full px-8 py-4 font-headline text-lg font-bold transition-all hover:scale-105 active:scale-95">
             BOEK JE AFSPRAAK
             <span className="material-symbols-outlined">arrow_forward</span>
-          </button>
+          </a>
         </div>
 
         <div className="relative">
