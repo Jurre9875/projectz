@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { bookingServices, bookingTimeSlots } from "@/lib/bookingOpties";
+import emailjs from "@emailjs/browser";
 
 function today() {
   return new Date().toISOString().split("T")[0];
@@ -25,19 +26,34 @@ export default function Booking() {
     e.preventDefault();
 
     const res = await fetch("/api/bookings", {
-
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        ...data,}),
+      body: JSON.stringify({ ...data }),
     });
 
     if (res.ok) {
+      try {
+        await emailjs.send(
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+          {
+            to_name: data.name,
+            to_email: data.email,
+            service: data.service,
+            date: data.date,
+            time: data.time,
+          },
+          process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+        );
+      } catch (emailError) {
+        console.error("EmailJS status:", emailError.status);
+        console.error("EmailJS tekst:", emailError.text);
+      }
       alert("afspraak verstuurd");
     } else {
       alert("er is iets misgegaan probeer het later opnieuw");
     }
-};
+  };
   
   return (
     <section className="bg-surface-container-low py-24" id="afspraak">
