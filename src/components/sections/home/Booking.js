@@ -136,7 +136,7 @@ export default function Booking() {
             <textarea
               className="w-full rounded-2xl border border-line px-4 py-4"
               name="notes"
-              placeholder="Opmerking"
+              placeholder="Opmerking bijv = 'Ik heb last van ingegroeide haren, graag voorzichtig scheren.' "
               onChange={onChange}
             />
 
