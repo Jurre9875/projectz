@@ -18,7 +18,7 @@ export default function About() {
               ))}
             </div>
 
-            <h2 className="text-on-surface mb-8 font-headline text-5xl leading-tight font-black">
+            <h2 className="text-on-surface mb-8 font-headline text-3xl sm:text-5xl leading-tight font-black">
               PREMIUM <br />
               BARBIERSERVARING
             </h2>
@@ -37,7 +37,7 @@ export default function About() {
             </div>
           </div>
 
-          <div className="bg-primary relative overflow-hidden rounded-xl p-12 md:p-20 lg:col-span-7 ml-16">
+          <div className="bg-primary relative overflow-hidden rounded-xl p-8 md:p-12 lg:p-20 lg:col-span-7 lg:ml-16">
             <div className="absolute top-0 right-0 -mt-16 -mr-16 h-32 w-32 rounded-full bg-white/5" />
 
             <h3 className="mb-6 font-headline text-3xl font-bold text-white">
